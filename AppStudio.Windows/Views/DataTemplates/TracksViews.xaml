@@ -69,6 +69,7 @@
 
 
     <!-- DetailMultiColumn -->
+    <!-- update the Command Path to include our new method in the ActionCommand.cs class -->
     <DataTemplate x:Key="Tracks1DetailDetail">
       <ScrollViewer VerticalScrollBarVisibility="Auto" ZoomMode="Disabled">
         <Grid Margin="12,0">
@@ -86,7 +87,7 @@
           <TextBlock Grid.ColumnSpan="2" Style="{StaticResource HeaderText}" Text="Detail" />
           
           <Button Grid.Row="1" Margin="0,12" VerticalAlignment="Top" Style="{StaticResource PlayActionButton}"
-                  Command="{Binding Source={StaticResource ActionCommands}, Path=MusicLaunchArtist}" CommandParameter="{Binding TrackUrl}" 
+                  Command="{Binding Source={StaticResource ActionCommands}, Path=SoundCloudLaunchTrack}" CommandParameter="{Binding TrackUrl}" 
                   Content="{Binding TrackTitle, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}"/>
           <RichTextBlock Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Margin="24"
                          Style="{StaticResource Html2XamlStyle}" html2xaml:Properties.Html="" />
@@ -98,7 +99,7 @@
             <StackPanel>
                 <TextBlock Margin="0,0,0,30" Style="{StaticResource HeaderText}" Text="Detail" />
                 <Button Margin="0,12" VerticalAlignment="Top" Style="{StaticResource PlayActionButton}"
-                        Command="{Binding Source={StaticResource ActionCommands}, Path=MusicLaunchArtist}" CommandParameter="{Binding TrackUrl}" 
+                        Command="{Binding Source={StaticResource ActionCommands}, Path=SoundCloudLaunchTrack}" CommandParameter="{Binding TrackUrl}" 
                         Content="{Binding TrackTitle, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}"/>
                 <RichTextBlock Margin="0, 30" Style="{StaticResource Html2XamlStyle}" html2xaml:Properties.Html="" />
             </StackPanel>
