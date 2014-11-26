@@ -1,0 +1,54 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AppStudio.Controls"
+    xmlns:html2xaml="using:AppStudio.Controls.Html2Xaml"
+    xmlns:commands="using:AppStudio.Commands">
+
+    <!-- ListPhotoLeft -->
+    <DataTemplate x:Key="TracksList">
+        <Grid>
+            <ListView ItemsSource="{Binding Items}"  SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True"  commands:ItemClickCommand.Command="{Binding ItemClickCommand}" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                     ItemTemplate="{StaticResource TracksItem}">
+            </ListView>
+            <ProgressBar Width="380" Height="40" Foreground="White" VerticalAlignment="Top" IsIndeterminate="True" Visibility="{Binding ProgressBarVisibility}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- ListPhotoLeft Item -->
+    <DataTemplate x:Key="TracksItem">
+        <Grid MinWidth="340">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0" Grid.Column="0" Margin="0, 8" Source="{Binding Image, Converter={StaticResource ThumbnailConverter}, ConverterParameter=220}" MaxHeight="110"
+                    Stretch="UniformToFill" VerticalAlignment="Top" />
+
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Margin="16, 8, 10, 0" Style="{StaticResource ItemHeaderWrapText}" VerticalAlignment="Center"
+                            Text="{Binding TrackTitle, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" MaxLines="2"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Margin="16, 4, 10, 0" Style="{StaticResource ItemSubheaderText}" VerticalAlignment="Top"
+                            Text="" MaxLines="3"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+
+    <!-- DetailMultiColumn -->
+    <!-- update the Command Path to include our new method in the ActionCommand.cs class -->
+    <DataTemplate x:Key="Tracks1DetailDetail">
+      <ScrollViewer>
+        <StackPanel>
+            <TextBlock Margin="0,16" Text="Detail" Style="{StaticResource SubHeaderText}" />
+            <Button Margin="0,5,5,10" VerticalAlignment="Top" Style="{StaticResource PlayActionButton}"
+              Command="{Binding Source={StaticResource ActionCommands}, Path=SoundCloudLaunchTrack}" CommandParameter="{Binding TrackUrl}" Content="{Binding TrackTitle, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}"/>
+            <RichTextBlock Margin="0,12"  Style="{StaticResource Html2XamlStyle}" html2xaml:Properties.Html="" />
+        </StackPanel>
+      </ScrollViewer>
+    </DataTemplate>
+</ResourceDictionary>

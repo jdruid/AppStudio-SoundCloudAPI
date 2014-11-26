@@ -1,0 +1,156 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <!-- Colors -->
+  <SolidColorBrush x:Key="AppForegroundColor" Color="#ffffff" />
+  <SolidColorBrush x:Key="AppBackgroundColor" Color="#000000" />
+
+  <!-- Images -->
+  <BitmapImage x:Key="AppLogoImage" UriSource="/Assets/ApplicationLogo.png"/>
+  <BitmapImage x:Key="AppBackgroundImage" UriSource="/Assets/ApplicationBackgroundImage.jpg"/>
+
+  <!-- App Background -->
+  <ImageBrush x:Key="AppBackground" ImageSource="{StaticResource AppBackgroundImage}" Stretch="UniformToFill" AlignmentX="Left" />
+  <ImageBrush x:Key="AppBackgroundPopup" ImageSource="{StaticResource AppBackgroundImage}" Stretch="UniformToFill" AlignmentX="Left" Opacity=".50"/>
+
+  <!-- AppBar Background -->
+  <SolidColorBrush x:Key="AppBarBackground" Color="#003a79" />
+
+  <!-- Page Header -->
+  <DataTemplate x:Key="PageHeaderMargin">
+    <!-- Back button and page title -->
+    <Grid Margin="0,24,0,0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="80"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Image Margin="0" Source="{StaticResource AppLogoImage}" Width="70" Height="70" VerticalAlignment="Center" />
+      <TextBlock Grid.Column="1" Margin="10,0" Text="{StaticResource AppTitle}" FontSize="48" Foreground="{StaticResource AppForegroundColor}"
+           VerticalAlignment="Center" IsHitTestVisible="false" TextWrapping="NoWrap" />
+    </Grid>
+  </DataTemplate>
+  <DataTemplate x:Key="PageHeader">
+    <!-- Back button and page title -->
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="80"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Image Margin="0" Source="{StaticResource AppLogoImage}" Width="70" Height="70" VerticalAlignment="Center" />
+      <TextBlock Grid.Column="1" Margin="10,0" Text="{StaticResource AppTitle}" FontSize="48" Foreground="{StaticResource AppForegroundColor}"
+           VerticalAlignment="Center" IsHitTestVisible="false" TextWrapping="NoWrap" />
+    </Grid>
+  </DataTemplate>
+
+  <Style x:Key="HeaderHostStyle" TargetType="Border">
+    <Setter Property="Padding" Value="0"/>
+  </Style>
+
+  <DataTemplate x:Key="TouchDevelopHeader">
+  </DataTemplate>
+  
+  <!-- Hub Header -->
+  <DataTemplate x:Key="HubHeader">
+    <Grid>
+      <TextBlock Text="{Binding}" Style="{StaticResource SubHeaderText}" />
+    </Grid>
+  </DataTemplate>
+
+  <!-- Html2Xaml  -->
+  <Style x:Key="Html2XamlStyle" TargetType="RichTextBlock">
+    <Setter Property="Foreground" Value="{StaticResource AppForegroundColor}" />
+    <Setter Property="FontSize"  Value="19" />
+  </Style>
+
+  <!-- Flip Item -->
+  <Style x:Key="FlipItemStyle" TargetType="FlipViewItem">
+    <Setter Property="Margin" Value="24,0,24,0" />
+    <Setter Property="Width" Value="340" />
+  </Style>
+
+  <!-- Text Styles -->
+  <Style x:Key="BaseItemText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="{StaticResource AppForegroundColor}" />
+    <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+    <Setter Property="TextWrapping" Value="Wrap"/>
+    <Setter Property="Typography.StylisticSet20" Value="True"/>
+    <Setter Property="Typography.DiscretionaryLigatures" Value="True"/>
+    <Setter Property="Typography.CaseSensitiveForms" Value="True"/>
+    <Setter Property="LineHeight" Value="20"/>
+    <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+    <Setter Property="TextLineBounds" Value="TrimToBaseline"/>
+    <Setter Property="OpticalMarginAlignment" Value="TrimSideBearings"/>
+  </Style>
+
+  <Style x:Key="SubHeaderText" TargetType="TextBlock" BasedOn="{StaticResource BaseItemText}">
+    <Setter Property="Foreground" Value="{StaticResource AppForegroundColor}" />
+    <Setter Property="FontSize" Value="28"/>
+    <Setter Property="LineHeight" Value="32"/>
+    <Setter Property="FontWeight" Value="Light"/>
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Setter Property="TextTrimming" Value="WordEllipsis" />
+    <Setter Property="MaxHeight" Value="110"/>
+    <Setter Property="VerticalAlignment" Value="Top"/>
+  </Style>
+
+  <Style x:Key="ItemHeaderText" TargetType="TextBlock" BasedOn="{StaticResource BaseItemText}">
+    <Setter Property="Foreground" Value="{StaticResource AppForegroundColor}" />
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="TextTrimming" Value="WordEllipsis" />
+  </Style>
+
+  <Style x:Key="ItemHeaderWrapText" TargetType="TextBlock" BasedOn="{StaticResource ItemHeaderText}">
+    <Setter Property="Foreground" Value="{StaticResource AppForegroundColor}" />
+    <Setter Property="LineHeight" Value="22"/>
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+
+  <Style x:Key="ItemHeaderDetailWrapText" TargetType="TextBlock" BasedOn="{StaticResource ItemHeaderWrapText}">
+    <Setter Property="MaxHeight" Value="110"/>
+    <Setter Property="LineStackingStrategy" Value="MaxHeight"/>
+  </Style>
+
+  <Style x:Key="ItemSubheaderText" TargetType="TextBlock" BasedOn="{StaticResource BaseItemText}">
+    <Setter Property="Foreground" Value="{StaticResource AppForegroundColor}" />
+    <Setter Property="FontSize" Value="15"/>
+    <Setter Property="FontWeight" Value="SemiLight"/>
+    <Setter Property="LineHeight" Value="20"/>
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+
+  <Style x:Key="ItemSmallText" TargetType="TextBlock" BasedOn="{StaticResource BaseItemText}">
+    <Setter Property="Foreground" Value="{StaticResource AppForegroundColor}" />
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="FontWeight" Value="SemiLight"/>
+    <Setter Property="LineHeight" Value="18"/>
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+
+  <Style x:Key="ItemContentText" TargetType="TextBlock" BasedOn="{StaticResource BaseItemText}">
+    <Setter Property="Foreground" Value="{StaticResource AppForegroundColor}" />
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="FontWeight" Value="SemiLight"/>
+    <Setter Property="LineHeight" Value="22"/>
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+
+  <Style x:Key="MenuItemText" TargetType="TextBlock" BasedOn="{StaticResource BaseItemText}">
+    <Setter Property="Foreground" Value="{StaticResource AppForegroundColor}" />
+    <Setter Property="FontSize" Value="24"/>
+    <Setter Property="LineHeight" Value="20"/>
+    <Setter Property="TextLineBounds" Value="TrimToBaseline" />
+    <Setter Property="TextWrapping" Value="NoWrap" />
+    <Setter Property="TextTrimming" Value="WordEllipsis" />
+  </Style>
+
+  <Style x:Key="MenuItemSmallText" TargetType="TextBlock" BasedOn="{StaticResource BaseItemText}">
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="FontWeight" Value="SemiLight"/>
+    <Setter Property="LineHeight" Value="20"/>
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Setter Property="TextAlignment" Value="Center" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+  </Style>
+</ResourceDictionary>

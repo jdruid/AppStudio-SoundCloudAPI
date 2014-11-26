@@ -1,0 +1,35 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AppStudio.Controls"
+    xmlns:html2xaml="using:AppStudio.Controls.Html2Xaml"
+    xmlns:commands="using:AppStudio.Commands">
+
+    <!-- HtmlList -->
+    <DataTemplate x:Key="AboutList">
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" ZoomMode="Disabled">
+            <RichTextBlock html2xaml:Properties.Html="{Binding Items[0].Content}" Margin="0,0,15,0" MaxWidth="640" Foreground="{StaticResource AppForegroundColor}" Style="{StaticResource Html2XamlStyle}"/>
+        </ScrollViewer>
+    </DataTemplate>
+
+    <DataTemplate x:Key="AboutListSnapped">
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" ZoomMode="Disabled">
+            <RichTextBlock html2xaml:Properties.Html="{Binding Items[0].Content}" Margin="0,0,15,0" MaxWidth="300" Height="340" Foreground="{StaticResource AppForegroundColor}" Style="{StaticResource Html2XamlStyle}"/>
+        </ScrollViewer>
+    </DataTemplate>
+
+    <!-- HtmlItem -->
+    <DataTemplate x:Key="AboutItem">
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" ZoomMode="Disabled">
+            <RichTextBlock html2xaml:Properties.Html="{Binding Content}" Margin="0,0,15,0" MaxWidth="640" Foreground="{StaticResource AppForegroundColor}" Style="{StaticResource Html2XamlStyle}"/>
+        </ScrollViewer>
+    </DataTemplate>
+        
+    <DataTemplate x:Key="AboutItemSnapped">
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" ZoomMode="Disabled">
+            <RichTextBlock html2xaml:Properties.Html="{Binding Content}" Margin="0,0,15,0" MaxWidth="220" Foreground="{StaticResource AppForegroundColor}" Style="{StaticResource Html2XamlStyle}"/>
+        </ScrollViewer>
+    </DataTemplate>
+        
+
+</ResourceDictionary>

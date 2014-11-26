@@ -1,0 +1,79 @@
+<Page
+    x:Class="AppStudio.Views.TracksList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppStudio.Views"
+    xmlns:controls="using:AppStudio.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:commands="using:AppStudio.Commands"
+    xmlns:vm="using:AppStudio.ViewModels"
+    mc:Ignorable="d" >
+
+    <Grid Background="{StaticResource AppBackground}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.RowSpan="2" DataContext="{Binding TracksModel}"
+              d:DataContext="{d:DesignData Source=/Assets/Data/TracksDataSource.json, Type=vm:TracksViewModel, IsDesignTimeCreatable=true}">
+          
+            <TextBlock x:Name="Title" Margin="100,140,100,60" Style="{StaticResource SubheaderText}">Tracks</TextBlock>
+            <GridView x:Name="List" Margin="100,190,90,50" ItemsSource="{Binding Items}" 
+                   SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True" commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                   ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                   ItemTemplate="{StaticResource TracksItem}">
+            </GridView>
+            <ListView x:Name="ListSnapped" Margin="18,190,18,0" ItemsSource="{Binding Items}" 
+                      SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True" commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                      Width="240" HorizontalAlignment="Left"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      ItemTemplate="{StaticResource TracksItemSnapped}"
+                      Visibility="Collapsed">
+            </ListView>
+          <ProgressBar Grid.Row="1" Width="520" Height="40" Foreground="White" IsIndeterminate="True" Visibility="{Binding ProgressBarVisibility}"></ProgressBar>
+        </Grid>
+
+        <!-- Back button and page title -->
+        <Border x:Name="HeaderHost" Padding="40,60,40,0" Grid.Row="0">
+            <ContentPresenter ContentTemplate="{StaticResource PageHeader}" Content="{Binding NavigationHelper}" />
+        </Border>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="SnappedView">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Title" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="20,140,0,60"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="List" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ListSnapped" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="FullscreenView">
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+      </Grid>
+
+  <Page.BottomAppBar>
+    <CommandBar Background="{StaticResource AppBarBackground}">
+      <AppBarButton x:Uid="RefreshButton" Command="{Binding TracksModel.RefreshCommand}">
+        <AppBarButton.Icon>
+          <BitmapIcon UriSource="ms-appx:///Assets/AppBar/Refresh.png"/>
+        </AppBarButton.Icon>
+      </AppBarButton>
+    </CommandBar>
+  </Page.BottomAppBar>
+</Page>

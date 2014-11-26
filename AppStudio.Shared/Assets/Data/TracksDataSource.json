@@ -1,0 +1,34 @@
+{
+  "Items": [
+    {
+      "TrackTitle": "G80's Rock Mix",
+      "TrackUrl": "http://soundcloud.com/peter-g-rewerks/g80s-rock-mix-peter-g-rewerk-ac-dc-bon-jovi-def-leppard-guns-n-roses-metallica-nirvana",
+      "Image": "https://waspro.blob.core.windows.net/apps/239535/a2a8169b-40e2-41c0-b95b-aaca3fda8123/res/Exercise-04-3.png",
+      "_id": "14b3713e-e3e6-4e12-a0e0-e8ff634ff558"
+    },
+    {
+      "TrackTitle": "We Found Love",
+      "TrackUrl": "https://soundcloud.com/peter-g-rewerks/we-found-a-love-and-beat-it-dj-keith-marshall-mashup-peter-g-rewerk-michael-jackson-vs-rihanna",
+      "Image": "https://waspro.blob.core.windows.net/apps/239535/a2a8169b-40e2-41c0-b95b-aaca3fda8123/res/Exercise-04-4.png",
+      "_id": "d3ce900a-237e-4f34-a66d-d8a710b8b9b8"
+    },
+    {
+      "TrackTitle": "Walk This Way",
+      "TrackUrl": "https://soundcloud.com/peter-g-rewerks/walk-this-way-starting-from-scratch-remix-peter-g-rewerk-run-dmc-aerosmith",
+      "Image": "https://waspro.blob.core.windows.net/apps/239535/a2a8169b-40e2-41c0-b95b-aaca3fda8123/res/Exercise-04-5.png",
+      "_id": "df51e308-b763-4973-b7f6-12ae2041f634"
+    },
+    {
+      "TrackTitle": "We can work it out",
+      "TrackUrl": "https://soundcloud.com/peter-g-rewerks/we-can-work-it-out-dj-prince-remix-peter-g-rewerk-beatles-vs-james-brown",
+      "Image": "https://waspro.blob.core.windows.net/apps/239535/a2a8169b-40e2-41c0-b95b-aaca3fda8123/res/Exercise-04-6.png",
+      "_id": "f80fb7a6-feb6-421b-abb2-078f3820a972"
+    },
+    {
+      "TrackTitle": "My Life Remix",
+      "TrackUrl": "https://soundcloud.com/peter-g-rewerks/my-life-clean-remix-peter-g-rewerk-eminem-50-cent-adam-levine",
+      "Image": "https://waspro.blob.core.windows.net/apps/239535/a2a8169b-40e2-41c0-b95b-aaca3fda8123/res/Exercise-04-7.png",
+      "_id": "f528e981-4d2a-47e1-ba1e-2f9e3441e9ff"
+    }
+  ]
+}

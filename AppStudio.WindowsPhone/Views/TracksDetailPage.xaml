@@ -1,0 +1,65 @@
+<Page
+    x:Class="AppStudio.Views.TracksDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppStudio.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    NavigationCacheMode="Required"
+    xmlns:vm="using:AppStudio.ViewModels"
+    mc:Ignorable="d">
+
+  <Grid Background="{StaticResource AppBackground}">
+    <Grid.ChildrenTransitions>
+      <TransitionCollection>
+        <EntranceThemeTransition/>
+      </TransitionCollection>
+    </Grid.ChildrenTransitions>
+   
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    
+    <!-- Page title -->
+    <Border x:Name="HeaderHost" Grid.Row="0" Height="80">
+      <ContentPresenter ContentTemplate="{StaticResource PageHeader}" />
+    </Border>
+
+    <FlipView x:Name="Flip" Grid.Row="1" AutomationProperties.AutomationId="ItemsFlipView" AutomationProperties.Name="Item Details" TabIndex="1"
+              DataContext="{Binding TracksModel}"
+              d:DataContext="{d:DesignData Source=/Assets/Data/TracksDataSource.json, Type=vm:TracksViewModel, IsDesignTimeCreatable=true}"
+              ItemsSource="{Binding Items}"
+              ItemTemplate="{StaticResource Tracks1DetailDetail}"
+              SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+              ItemContainerStyle="{StaticResource FlipItemStyle}">
+    </FlipView>
+
+  </Grid>
+
+  <Page.BottomAppBar>
+    <CommandBar ClosedDisplayMode="Minimal" Visibility="{Binding TracksModel.AppBarVisibility}" Background="{StaticResource AppBarBackground}" Foreground="{StaticResource AppForegroundColor}">
+      <AppBarButton DataContext="{Binding TracksModel}" x:Uid="TextToSpeechButton" Visibility="{Binding TextToSpeechVisibility}"
+                    Command="{Binding TextToSpeechCommand}">
+        <AppBarButton.Icon>
+          <BitmapIcon UriSource="ms-appx:///Assets/AppBar/TextToSpeech.png"/>
+        </AppBarButton.Icon>
+      </AppBarButton>
+      <AppBarButton DataContext="{Binding TracksModel}" x:Uid="RefreshButton" Visibility="{Binding RefreshVisibility}"
+                    Command="{Binding RefreshCommand}">
+        <AppBarButton.Icon>
+          <BitmapIcon UriSource="ms-appx:///Assets/AppBar/Refresh.png"/>
+        </AppBarButton.Icon>
+      </AppBarButton>
+      <AppBarButton DataContext="{Binding TracksModel}" x:Uid="GoToSourceButton" Visibility="{Binding GoToSourceVisibility}"
+                    Command="{Binding GoToSourceCommand}">
+        <AppBarButton.Icon>
+          <BitmapIcon UriSource="ms-appx:///Assets/AppBar/GoToSource.png"/>
+        </AppBarButton.Icon>
+      </AppBarButton>
+      <CommandBar.SecondaryCommands>
+        <AppBarButton x:Uid="ShareItemButton" Label="share item" DataContext="{Binding TracksModel}" Visibility="{Binding ShareItemVisibility}" Command="{Binding ShareItemCommand}"/>
+      </CommandBar.SecondaryCommands>
+    </CommandBar>
+  </Page.BottomAppBar>
+</Page>
