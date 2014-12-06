@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="AppStudio.Views.MusicPlayer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppStudio.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    NavigationCacheMode="Required"
+    xmlns:vm="using:AppStudio.ViewModels"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>            
+        </Grid.RowDefinitions>
+
+        <!-- Page title -->
+        <Border x:Name="HeaderHost" Grid.Row="0" Height="80">
+            <ContentPresenter ContentTemplate="{StaticResource PageHeader}" />
+        </Border>
+
+        <FlipView x:Name="Flip" Grid.Row="1" AutomationProperties.AutomationId="ItemsFlipView" AutomationProperties.Name="Item Details" TabIndex="1"
+            DataContext="{Binding TracksModel}"
+                  d:DataContext="{d:DesignData Source=/Assets/Data/TracksDAtaSource.json, Type=vm:TracksViewModel, IsDesignTimeCreatable=True}"
+                  ItemsSource="{Binding Items}"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                  ItemContainerStyle="{StaticResource FlipItemStyle}"
+                  SelectionChanged="Flip_SelectionChanged">
+            <FlipView.ItemTemplate>
+                <DataTemplate>
+                    <ScrollViewer>
+                        <StackPanel>
+                            <TextBlock Margin="0,1" Text="{Binding TrackTitle, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" Style="{StaticResource BodyTextBlockStyle}" />
+                            <TextBlock Margin="0,1" Text="{Binding TrackTitle, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" Style="{StaticResource SubHeaderText}" />
+                            <Image Margin="0, 8" Source="{Binding Image, Converter={StaticResource ThumbnailConverter}, ConverterParameter=220}" 
+                                   Stretch="UniformToFill" VerticalAlignment="Top" />
+                        </StackPanel>
+                    </ScrollViewer>
+                </DataTemplate>
+            </FlipView.ItemTemplate>
+        </FlipView>
+          
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="AppBarPrevButton" Icon="Previous" Label="Play" Click="PrevButton_Click"/>
+
+            <AppBarButton x:Name="AppBarPlayButton" Icon="Play" Label="Play" Click="PlayButton_Click"/>
+            <AppBarButton x:Name="AppBarRefreshButton" Icon="Refresh" Label="Start" Click="RefreshButton_Click"/>
+
+            <AppBarButton x:Name="AppBarNextButton" Icon="Next" Label="Next" Click="NextButton_Click"/>
+
+        </CommandBar>
+    </Page.BottomAppBar>
+
+
+</Page>
+    
+    

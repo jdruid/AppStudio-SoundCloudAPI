@@ -25,6 +25,7 @@ namespace AppStudio.Data
             try
             {
                 var serviceDataProvider = new ServiceDataProvider(_appId, _dataSourceName);
+                
                 return await serviceDataProvider.Load<TracksSchema>();
             }
             catch (Exception ex)

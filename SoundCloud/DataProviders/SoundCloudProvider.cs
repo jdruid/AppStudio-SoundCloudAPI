@@ -15,16 +15,18 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.ObjectModel;
 
-namespace AppStudio.Data
+using SoundCloud.Common;
+
+namespace SoundCloud.DataProviders
 {
-    public class SoundCloudDataProvider
+    public class SoundCloudProvider
     {
         //Endpoint to RESOLVE a track id or playlist id
         const string RESOLVE_URL_ENDPOINT = "http://api.soundcloud.com/resolve.json?url={0}&client_id={1}";
 
         private Uri _uri;
 
-        public SoundCloudDataProvider(string clientId, string resolveUrl)
+        public SoundCloudProvider(string clientId, string resolveUrl)
         {
             string url = String.Format(RESOLVE_URL_ENDPOINT, resolveUrl, clientId);
             _uri = new Uri(url);

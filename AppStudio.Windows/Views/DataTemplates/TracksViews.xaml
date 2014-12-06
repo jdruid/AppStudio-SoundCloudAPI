@@ -84,7 +84,7 @@
               <ColumnDefinition Width="*"/>
           </Grid.ColumnDefinitions>
 
-          <TextBlock Grid.ColumnSpan="2" Style="{StaticResource HeaderText}" Text="Detail" />
+          <TextBlock Grid.ColumnSpan="2" Style="{StaticResource HeaderText}" Text="Track Name" />
           
           <Button Grid.Row="1" Margin="0,12" VerticalAlignment="Top" Style="{StaticResource PlayActionButton}"
                   Command="{Binding Source={StaticResource ActionCommands}, Path=SoundCloudLaunchTrack}" CommandParameter="{Binding TrackUrl}" 
@@ -97,7 +97,7 @@
     <DataTemplate x:Key="Tracks1DetailDetailSnapped">
         <Grid Width="230">
             <StackPanel>
-                <TextBlock Margin="0,0,0,30" Style="{StaticResource HeaderText}" Text="Detail" />
+                <TextBlock Margin="0,0,0,30" Style="{StaticResource HeaderText}" Text="Track Name" />
                 <Button Margin="0,12" VerticalAlignment="Top" Style="{StaticResource PlayActionButton}"
                         Command="{Binding Source={StaticResource ActionCommands}, Path=SoundCloudLaunchTrack}" CommandParameter="{Binding TrackUrl}" 
                         Content="{Binding TrackTitle, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}"/>

@@ -10,9 +10,15 @@ using AppStudio.Data;
 
 namespace AppStudio.ViewModels
 {
+    
     public class TracksViewModel : ViewModelBase<TracksSchema>
     {
         private RelayCommandEx<TracksSchema> itemClickCommand;
+
+        /// <summary>
+        /// NOTE: We are changing the "navigate" page to go to the new page MusicPlayer to work with the Windows PHone 8.1 BackgroundAudio task. This will not
+        /// work with Windows 8.1 Store apps. Please comment and put back prior line. Fix for Windows 8.1 is coming in the future.
+        /// </summary>
         public RelayCommandEx<TracksSchema> ItemClickCommand
         {
             get
@@ -22,7 +28,8 @@ namespace AppStudio.ViewModels
                     itemClickCommand = new RelayCommandEx<TracksSchema>(
                         (item) =>
                         {
-                            NavigationServices.NavigateToPage("TracksDetail", item);
+                            //NavigationServices.NavigateToPage("TracksDetail", item);
+                            NavigationServices.NavigateToPage("MusicPlayer", item);
                         });
                 }
 
@@ -64,7 +71,8 @@ namespace AppStudio.ViewModels
 
         override protected void NavigateToSelectedItem()
         {
-            NavigationServices.NavigateToPage("TracksDetail");
+            //NavigationServices.NavigateToPage("TracksDetail");
+            NavigationServices.NavigateToPage("SoundCloudPlayer");
         }
     }
 }

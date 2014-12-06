@@ -14,9 +14,8 @@ namespace AppStudio.Data
         private string _image;
         [JsonProperty("_id")]
         public string Id { get; set; }
-
  
-        public string TrackTitle
+        public string TrackTitle                                                                                                                                                                                                                                                                                                          
         {
             get { return _trackTitle; }
             set { SetProperty(ref _trackTitle, value); }

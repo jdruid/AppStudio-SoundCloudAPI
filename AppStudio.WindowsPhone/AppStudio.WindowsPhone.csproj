@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{f1d630fb-7627-47a1-9577-036add7716ed}</ProjectGuid>
+    <ProjectGuid>{F1D630FB-7627-47A1-9577-036ADD7716ED}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AppStudio</RootNamespace>
-    <AssemblyName>AppStudio</AssemblyName>
+    <AssemblyName>SoundCloudAPI.AppStudio</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
@@ -91,6 +91,9 @@
     <Content Include="Assets\AppBar\Refresh.png" />
     <Content Include="Assets\AppBar\TextToSpeech.png" />
     <Content Include="Assets\BadgeLogo.png" />
+    <Content Include="Assets\Media\Ring01.wma" />
+    <Content Include="Assets\Media\Ring02.wma" />
+    <Content Include="Assets\Media\Ring03.wma" />
     <Content Include="Views\DataTemplates\AboutViews.xaml" />
     <Content Include="Views\DataTemplates\TracksViews.xaml" />
   </ItemGroup>
@@ -105,6 +108,12 @@
     <Content Include="Assets\StoreLogo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\BackgroundAudioTask\ApplicationSettingsHelper.cs">
+      <Link>BackgroundAudioHelpers\ApplicationSettingsHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\BackgroundAudioTask\Constants.cs">
+      <Link>BackgroundAudioHelpers\Constants.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +125,9 @@
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MusicPlayer.xaml.cs">
+      <DependentUpon>MusicPlayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TracksDetailPage.xaml.cs">
       <DependentUpon>TracksDetailPage.xaml</DependentUpon>
@@ -131,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MusicPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,7 +167,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>
@@ -180,6 +197,10 @@
     <ProjectReference Include="..\AppStudio.Data\AppStudio.Data.csproj">
       <Project>{81ac984d-b42f-4b70-8229-e3bfd22ea8f1}</Project>
       <Name>AppStudio.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackgroundAudioTask\BackgroundAudioTask.csproj">
+      <Project>{f95bb484-a1fc-4130-bf91-d3fa771b220d}</Project>
+      <Name>BackgroundAudioTask</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(TargetPlatformIdentifier)' == '' ">

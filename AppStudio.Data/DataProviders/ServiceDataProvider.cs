@@ -27,6 +27,7 @@ namespace AppStudio.Data
             {
                 string data = await DownloadAsync(_uri);
                 IEnumerable<T> records = JsonConvert.DeserializeObject<IEnumerable<T>>(data);
+                
                 return records;
             }
             catch (Exception ex)

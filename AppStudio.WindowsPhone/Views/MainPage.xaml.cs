@@ -35,6 +35,14 @@ namespace AppStudio.Views
 
             ApplicationView.GetForCurrentView().
                 SetDesiredBoundsMode(ApplicationViewBoundsMode.UseVisible);
+
+            //_mainViewModel.TracksModel
+            
+            //myPlaylist.tracks = new String[] { "https://api.soundcloud.com/tracks/125510114/stream?client_id=2e36b1c198d4e4d8d3fedb4e96cd4af4", "https://api.soundcloud.com/tracks/125510115/stream?client_id=2e36b1c198d4e4d8d3fedb4e96cd4af4" };
+            
+            //SoundCloudPlaylistManager.PlaylistManager.Playlist playlist = new SoundCloudPlaylistManager.PlaylistManager.Playlist();
+            //playlist.tracks = new String[] { "https://api.soundcloud.com/tracks/125510114/stream?client_id=2e36b1c198d4e4d8d3fedb4e96cd4af4", "https://api.soundcloud.com/tracks/125510115/stream?client_id=2e36b1c198d4e4d8d3fedb4e96cd4af4" };
+            
         }
 
         public MainViewModel MainViewModel

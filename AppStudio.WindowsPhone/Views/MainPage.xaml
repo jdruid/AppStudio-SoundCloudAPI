@@ -24,7 +24,7 @@
       <HubSection HeaderTemplate="{StaticResource HubHeader}" Width="360" Header="Tracks" DataContext="{Binding MainViewModel.TracksModel}" 
                   d:DataContext="{d:DesignData Source=/Assets/Data/TracksDataSource.json, Type=vm:TracksViewModel, IsDesignTimeCreatable=true}"
                   ContentTemplate="{StaticResource TracksList}" IsHeaderInteractive="{Binding HasMoreItems}" />
-    </Hub>
+       </Hub>
   </Grid>
 
   <Page.BottomAppBar>

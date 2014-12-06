@@ -3,8 +3,8 @@
   <Identity Name="cb412002-222c-4a27-92e2-637082ffb2cb" Publisher="CN=AppStudio" Version="1.0.7.0" />
   <mp:PhoneIdentity PhoneProductId="a2a8169b-40e2-41c0-b95b-aaca3fda8123" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>AppStudio App</DisplayName>
-    <PublisherDisplayName>AppStudio</PublisherDisplayName>
+    <DisplayName>SoundCloudAPI.AppStudio</DisplayName>
+    <PublisherDisplayName>Drew5</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
@@ -15,7 +15,7 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="AppStudio.App">
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="SoundCloudAPI.AppStudio.App">
       <m3:VisualElements DisplayName="Demo SoundCloud" Description="Demo app to enable SoundCloud API into an App Studio Project" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" ForegroundText="light" BackgroundColor="transparent">
         <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png" ShortName="Get Up and Go">
           <m3:ShowNameOnTiles>
@@ -30,6 +30,13 @@
           <m3:Rotation Preference="portrait" />
         </m3:InitialRotationPreference>
       </m3:VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundAudioTask.BackgroundAudioTask">
+          <BackgroundTasks>
+            <Task Type="audio" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <!-- Microphone capability required for TextToSpeech -->

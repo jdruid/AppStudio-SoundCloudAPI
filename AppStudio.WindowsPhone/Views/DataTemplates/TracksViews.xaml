@@ -44,7 +44,7 @@
     <DataTemplate x:Key="Tracks1DetailDetail">
       <ScrollViewer>
         <StackPanel>
-            <TextBlock Margin="0,16" Text="Detail" Style="{StaticResource SubHeaderText}" />
+            <TextBlock Margin="0,16" Text="Track Name" Style="{StaticResource SubHeaderText}" />
             <Button Margin="0,5,5,10" VerticalAlignment="Top" Style="{StaticResource PlayActionButton}"
               Command="{Binding Source={StaticResource ActionCommands}, Path=SoundCloudLaunchTrack}" CommandParameter="{Binding TrackUrl}" Content="{Binding TrackTitle, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}"/>
             <RichTextBlock Margin="0,12"  Style="{StaticResource Html2XamlStyle}" html2xaml:Properties.Html="" />

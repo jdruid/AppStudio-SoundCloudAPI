@@ -5,12 +5,13 @@
 // 
 // Copyright (c) Microsoft Corporation. All rights reserved 
 using System;
-using System.Collections;
-using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace AppStudio.Data.SoundCloud
 {
-
     public class User
     {
         public int id { get; set; }
@@ -22,7 +23,6 @@ namespace AppStudio.Data.SoundCloud
         public string permalink_url { get; set; }
         public string avatar_url { get; set; }
     }
-
     public class SoundCloudTrackSchema
     {
         public string kind { get; set; }
@@ -72,5 +72,4 @@ namespace AppStudio.Data.SoundCloud
         public string attachments_uri { get; set; }
         public string policy { get; set; }
     }
-
 }
